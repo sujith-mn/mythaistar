@@ -11,9 +11,9 @@ metadata:
 spec:
   tls:
   - hosts:
-    - mts-sujith-mn.cloud.okteto.net
+    - mts-pr-14-sujith-mn.cloud.okteto.net
   rules:
-  - host: mts-sujith-mn.cloud.okteto.net
+  - host: mts-pr-14-sujith-mn.cloud.okteto.net
     http:
       paths:
       - path: /api(/)(.*)
@@ -30,9 +30,9 @@ metadata:
 spec:
   tls:
   - hosts:
-    - mts-sujith-mn.cloud.okteto.net
+    - mts-pr-14-sujith-mn.cloud.okteto.net
   rules:
-  - host: mts-sujith-mn.cloud.okteto.net
+  - host: mts-pr-14-sujith-mn.cloud.okteto.net
     http:
       paths:
       - path: /*
