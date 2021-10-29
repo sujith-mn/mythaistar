@@ -3,7 +3,11 @@
 name: Docker Builds
 
 # Controls when the action will run. 
-on: [push]
+on:
+  push:
+    # Pattern matched against refs/tags
+    tags:        
+      - '**'  
 
 jobs:
   build:
