@@ -16,7 +16,10 @@ jobs:
     - uses: okteto/login@master
       with:
         token: ${{ secrets.OKTETO_TOKEN }}
-
+    - name: "Activate personal namespace"
+      uses: okteto/namespace@master
+      with:
+        name: sujith-mn
     - name: Create stack
       uses: okteto/deploy-stack@latest
       with:
