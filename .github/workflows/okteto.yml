@@ -1,6 +1,8 @@
 name: okteto build
 
-on: [push]
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
 
