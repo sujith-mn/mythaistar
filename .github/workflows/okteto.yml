@@ -15,8 +15,9 @@ jobs:
       with:
         token: ${{ secrets.OKTETO_TOKEN }}
     
-    - name: "Build"
-      uses: okteto/build@master
+    - uses: okteto/mtsj-sujith-mn@latest
+    
+    - name: "Create stack"
+      uses: okteto/deploy-stack@latest
       with:
-        file: "java/Dockerfile"
-        tag: okteto.dev/mtsj:${{ github.sha }}
+        build: "true"
