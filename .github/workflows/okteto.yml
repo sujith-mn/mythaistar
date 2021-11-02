@@ -1,4 +1,4 @@
-name: CI
+name: okteto build
 
 on: [push]
 
@@ -19,4 +19,4 @@ jobs:
       uses: okteto/build@master
       with:
         file: "java/Dockerfile"
-        tag: registry.cloud.okteto.net/sujith-mn/mythaistar:${{ github.sha }}
+        tag: registry.cloud.okteto.net/sujith-mn/mtsj:${{ github.sha }}
