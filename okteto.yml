@@ -1,5 +1,5 @@
 name: mts-angular
-image: devonmts/mtsj-angular:v1
-image: devonmts/mtsj-java:v1
+image: sujith-mn/mtsj-angular
+image: sujith-mn/mtsj-java
 command:
 - bash
