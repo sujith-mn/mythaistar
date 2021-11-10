@@ -24,16 +24,6 @@ jobs:
       uses: okteto/pipeline@master
       with:
         name: mts-pipeline
-   
-    - name: Sleep for 30 seconds
-      uses: jakejarvis/wait-action@v0.1.0
-      with:
-        time: '30s'
-    
-    - name: Verify
-      uses: srt32/uptime@v0.2
-      with:
-        url-to-hit: "https://mts-sujith-mn.cloud.okteto.net/"
-        expected-statuses: "200"
+  
         
     
