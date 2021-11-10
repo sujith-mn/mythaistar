@@ -20,11 +20,7 @@ spec:
       - name: angular
         image: isandesh/my-thai-star-angular:latest
         imagePullPolicy: Always
-        ports:
-        - containerPort: 80
-          name: http
- 
- ------------
+---
  
  apiVersion: v1
 kind: Service
@@ -34,12 +30,10 @@ metadata:
     app: mts
     tier: angular
 spec:
-  type: ClusterIP
+  type: ClusterIP  
   ports:
-  - protocol: TCP
+  - name: "mts-angular"
     port: 80
-    targetPort: http
-    name: http
   selector:
     app: mts
     tier: angular
