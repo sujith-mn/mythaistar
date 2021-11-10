@@ -1,4 +1,4 @@
-name: mts
+name: mts-angular
 image: devonmts/mtsj-angular:v1
 command:
 - bash
