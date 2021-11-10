@@ -20,6 +20,12 @@ jobs:
       with:
         tag: registry.cloud.okteto.net/sujith-mn/mts-java:${{ github.sha }}
         file: java/Dockerfile.githubactions
+
+    - name: "Build Angular Image"
+      uses: okteto/build@master
+      with:
+        tag: registry.cloud.okteto.net/sujith-mn/mts-angular:${{ github.sha }}
+        file: angular/Dockerfile.githubactions
         
     - name: Activate Namespace
       uses: okteto/namespace@master
