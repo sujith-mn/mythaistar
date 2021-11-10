@@ -19,13 +19,5 @@ jobs:
       with:
         namespace: sujith-mn
     
-    - name: Deploy Pipeline
-      uses: okteto/pipeline@master
-      with:
-        name: test-pipeline
-    
-    - name: Sleep for 30 seconds
-      uses: jakejarvis/wait-action@v0.1.0
-      with:
-        time: '30s'
+
     
