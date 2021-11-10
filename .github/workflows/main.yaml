@@ -15,6 +15,12 @@ jobs:
       with:
         token: ${{ secrets.OKTETO_TOKEN }}
 
+    - name: "Build Java Image"
+      uses: okteto/build@master
+      with:
+        tag: registry.cloud.okteto.net/sujith-mn/mts-java:${{ github.sha }}
+        file: java/Dockerfile.githubactions
+        
     - name: Activate Namespace
       uses: okteto/namespace@master
       with:
