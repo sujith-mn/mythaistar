@@ -1,4 +1,4 @@
 name: mts
-image: sujith-mn/mts-java
+image: sujith-mn/mts-java:latest
 command:
 - bash

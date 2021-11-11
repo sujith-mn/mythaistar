@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: angular
-        image: registry.cloud.okteto.net/sujith-mn/mts-angular
+        image: registry.cloud.okteto.net/sujith-mn/mts-angular:latest
         imagePullPolicy: Always
         ports:
           - name: http
@@ -67,7 +67,7 @@ spec:
     spec:
       containers:
       - name: java
-        image: registry.cloud.okteto.net/sujith-mn/mts-java
+        image: registry.cloud.okteto.net/sujith-mn/mts-java:latest
         imagePullPolicy: Always
         ports:
           - name: http
