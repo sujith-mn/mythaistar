@@ -24,7 +24,7 @@ jobs:
     - name: "Build Angular Image"
       uses: okteto/build@master
       with:
-        tag: registry.cloud.okteto.net/sujith-mn/mts-angular:${{ github.sha }}
+        tag: registry.cloud.okteto.net/sujith-mn/mts-angular
         file: angular/Dockerfile.githubactions
         
     - name: Activate Namespace
