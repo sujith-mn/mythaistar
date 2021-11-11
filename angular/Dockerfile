@@ -5,7 +5,7 @@ WORKDIR /app
 COPY angular/package.json /app/package.json
 RUN yarn
 COPY angular/. /app
-RUN yarn build --configuration=docker
+RUN yarn build 
 
 # 2. Deploy
 FROM nginx:latest
