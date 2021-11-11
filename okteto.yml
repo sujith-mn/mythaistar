@@ -1,5 +1,4 @@
 name: mts
-image: isandesh/my-thai-star-angular:latest
-image: isandesh/my-thai-star-java:latest
+image: sujith-mn/mts-java
 command:
 - bash
