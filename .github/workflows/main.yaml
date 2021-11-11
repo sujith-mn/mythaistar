@@ -15,10 +15,6 @@ jobs:
       with:
         token: ${{ secrets.OKTETO_TOKEN }}
 
-    - name: Build Java Image    
-
-    - name: Build Angular Image    
-        
     - name: Activate Namespace
       uses: okteto/namespace@master
       with:
