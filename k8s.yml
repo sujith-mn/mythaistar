@@ -49,6 +49,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mts-java
+  annotations:
+    dev.okteto.com/auto-ingress: "true"    
   labels:
     app: mts
 spec:
