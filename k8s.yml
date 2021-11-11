@@ -18,11 +18,11 @@ spec:
     spec:
       containers:
       - name: angular
-        image: registry.cloud.okteto.net/sujith-mn/mts-angular
+        image: isandesh/my-thai-star-angular:latest
         imagePullPolicy: Always
         ports:
           - name: http
-            containerPort: 80         
+            containerPort: 80        
 ---
  
 apiVersion: v1
@@ -40,5 +40,50 @@ spec:
   selector:
     app: mts
     tier: angular
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mts-java
+  labels:
+    app: mts
+spec:
+  selector:
+    matchLabels:
+      app: mts
+      tier: java
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mts
+        tier: java
+    spec:
+      containers:
+      - name: angular
+        image: isandesh/my-thai-star-java:latest
+        imagePullPolicy: Always
+        ports:
+          - name: http
+            containerPort: 8081        
+---
+ 
+apiVersion: v1
+kind: Service
+metadata:
+  name: mts-java
+  labels:
+    app: mts
+    tier: java
+spec:
+  type: ClusterIP  
+  ports:
+  - name: mts-java
+    port: 8081
+  selector:
+    app: mts
+    tier: java
 
 ---
