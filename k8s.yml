@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: angular
-        image: registry.cloud.okteto.net/sujith-mn/mts-angular:latest
+        image: ghcr.io/mts-angular
         imagePullPolicy: Always
         ports:
           - name: http
