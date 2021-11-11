@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: angular
-        image: ghcr.io/sujith-mn/mts-angular
+        image: ghcr.io/mts-angular
         imagePullPolicy: Always
         ports:
           - name: http
