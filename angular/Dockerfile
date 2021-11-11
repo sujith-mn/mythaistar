@@ -2,9 +2,9 @@
 FROM node:lts AS build
 WORKDIR /app
 
-COPY package.json /app/package.json
+COPY angular/package.json /app/package.json
 RUN yarn
-COPY . /app
+COPY angular/. /app
 RUN yarn build --configuration=docker
 
 # 2. Deploy
