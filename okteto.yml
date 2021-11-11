@@ -1,4 +1,5 @@
 name: mts
-image: devonmts/mtsj-angular:v1
+image: isandesh/my-thai-star-angular:latest
+image: isandesh/my-thai-star-java:latest
 command:
 - bash
