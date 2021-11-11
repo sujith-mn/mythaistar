@@ -35,7 +35,7 @@ metadata:
 spec:
   type: ClusterIP  
   ports:
-  - name: "mts-angular"
+  - name: mts-angular
     port: 80
   selector:
     app: mts
@@ -63,7 +63,7 @@ spec:
     spec:
       containers:
       - name: Java
-        image: isandesh/my-thai-star-java:latest
+        image: registry.cloud.okteto.net/sujith-mn/mts-java
         imagePullPolicy: Always
         ports:
           - name: http
@@ -80,7 +80,7 @@ metadata:
 spec:
   type: ClusterIP  
   ports:
-  - name: "mts-java"
+  - name: mts-java
     port: 8081
   selector:
     app: mts
