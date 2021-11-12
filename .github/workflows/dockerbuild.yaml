@@ -34,7 +34,9 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+      - name: print sha
+        run: echo ${{ github.sha }}
 
       - name: Build and push Docker image  ${{ github.repository }}
         uses: docker/build-push-action@v2
