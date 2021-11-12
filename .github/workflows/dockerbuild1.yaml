@@ -15,8 +15,9 @@ on:
   pull_request:
 
 env:
-  IMAGE_NAME: mtsj-java
-
+  JAVA_IMAGE_NAME: mtsj-java
+  ANGULAR_IMAGE_NAME: mtsj
+  
 jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
@@ -32,27 +33,39 @@ jobs:
         run: |
           ls -l 
 
-      - name: Build image
-        run: docker build . --file java/Dockerfile.githubactions --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
-
+      - name: Build Java image
+        run: docker build . --file java/Dockerfile.githubactions --tag $JAVA_IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
+        
+      - name: Build Angular image
+        run: docker build . --file angular/Dockerfile.githubactions --tag $ANGULAR_IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
+        
       - name: Log in to registry
         # This is where you will update the PAT to GITHUB_TOKEN
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push image
         run: |
-          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
-
+          JAVA_IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$JAVA_IMAGE_NAME
+          ANGULAR_IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$ANGULAR_IMAGE_NAME
+          
           # Change all uppercase to lowercase
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+          JAVA_IMAGE_ID=$(echo $JAVA_IMAGE_ID | tr '[A-Z]' '[a-z]')
+          ANGULAR_IMAGE_ID=$(echo $ANGULAR_IMAGE_ID | tr '[A-Z]' '[a-z]')
+          
           # Strip git ref prefix from version
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
           # Strip "v" prefix from tag name
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
           # Use Docker `latest` tag convention
           [ "$VERSION" == "master" ] && VERSION=latest
-          echo IMAGE_ID=$IMAGE_ID
+          echo JAVA_IMAGE_ID=$JAVA_IMAGE_ID
+          echo ANGULAR_IMAGE_ID=$ANGULAR_IMAGE_ID
+               
           echo VERSION=$VERSION
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
-          echo $IMAGE_ID:$VERSION
+          
+          docker tag $JAVA_IMAGE_NAME $JAVA_IMAGE_ID:$VERSION
+          docker push $JAVA_IMAGE_ID:$VERSION
+
+          docker tag $ANGULAR_IMAGE_NAME $ANGULAR_IMAGE_ID:$VERSION
+          docker push $ANGULAR_IMAGE_ID:$VERSION
+          
