@@ -67,7 +67,7 @@ spec:
     spec:
       containers:
       - name: java
-        image: registry.cloud.okteto.net/sujith-mn/mts-java:latest
+        image: ghcr.io/sujith-mn/mythaistar
         imagePullPolicy: Always
         ports:
           - name: http
