@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: angular
-        image: ghcr.io/mts-angular
+        image: docker pull ghcr.io/sujith-mn/mtsj-java:main
         imagePullPolicy: Always
         ports:
           - name: http
@@ -67,7 +67,7 @@ spec:
     spec:
       containers:
       - name: java
-        image: ghcr.io/sujith-mn/mythaistar
+        image: docker pull ghcr.io/sujith-mn/mtsj:main
         imagePullPolicy: Always
         ports:
           - name: http
