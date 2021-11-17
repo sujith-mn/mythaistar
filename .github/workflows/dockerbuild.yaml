@@ -17,12 +17,14 @@ jobs:
       packages: write
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Build and push Docker image  
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: ${{ env.IMAGE_NAME }}
           registry: ghcr.io
-          tags: v2, latest
+          tags: ${GITHUB_RUN_ID}, latest
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           dockerfile: java/Dockerfile.githubactions
