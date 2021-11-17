@@ -44,7 +44,6 @@ jobs:
         with:
           image: ${{ env.IMAGE_NAME }}
           registry: ghcr.io
-          githubOrg: override-org # optional
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           dockerfile: java/Dockerfile.githubactions
