@@ -35,7 +35,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.IMAGE_NAME }}
       - name: print sha
         run: echo ${{ github.sha }}
 
@@ -44,6 +44,7 @@ jobs:
         with:
           image: ${{ env.IMAGE_NAME }}
           registry: ghcr.io
+          tags: v1, latest
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           dockerfile: java/Dockerfile.githubactions
