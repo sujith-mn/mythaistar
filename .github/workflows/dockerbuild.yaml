@@ -7,8 +7,8 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  JAVA_IMAGE_NAME: mythaistar-java
-  ANGULAR_IMAGE_NAME: mythaistar-angular
+  JAVA_IMAGE_NAME: mythaistar-be
+  ANGULAR_IMAGE_NAME: mythaistar-ui
 
 jobs:
   build-and-push-image:
@@ -29,12 +29,3 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           dockerfile: java/Dockerfile.githubactions
-      - name: Build and push Angular image  
-        uses: mr-smithers-excellent/docker-build-push@v5
-        with:
-          image: ${{ env.ANGULAR_IMAGE_NAME }}
-          registry: ghcr.io
-          tags: ${GITHUB_RUN_ID}, latest
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          dockerfile: angular/Dockerfile.githubactions
