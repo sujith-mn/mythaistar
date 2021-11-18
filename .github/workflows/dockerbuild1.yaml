@@ -1,7 +1,6 @@
 name: Demo Push
 
 on:   
-  push:
   pull_request:
 
 env:
